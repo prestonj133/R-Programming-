@@ -1,0 +1,5 @@
+s3 <- list(grade = "B", year = "Freshman", GPA = 2.8)
+s3 <- list(number = 3235, score = 45.7, percentile = 83.5)
+
+s4 <- new("student", grade = "B", year = "Freshman", GPA = 2.8)
+s4 <- new("athletes", number = 3235, score = 45.7, percentile = 83.5)
