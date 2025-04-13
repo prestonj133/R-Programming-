@@ -1,0 +1,118 @@
+---
+title: "Bank Account Class"
+output: html_document
+---
+
+# Bank Account Class Documentation in R
+
+This document describes the key functions developed for the `BankAccount` class in R. 
+
+## Overview
+
+The `BankAccount` class simulates a basic bank account with ability to deposit, withdraw, check balance, and view account details.
+
+## Function 1: `create_account()`
+
+### **Purpose**
+Creates a new bank account object with a specified owner name and starting balance.
+
+### **Inputs**
+- `name`: Character. The name of the account holder.
+- `balance`: Numeric. The initial balance of the account (default is 0).
+
+### **Output**
+- A list representing the bank account object with fields for name and balance.
+
+### **Code Example**
+```r
+create_account <- function(name, balance = 0) {
+  account <- list(name = name, balance = balance)
+  class(account) <- "BankAccount"
+  return(account)
+}
+```
+
+### **Usage**
+```r
+my_account <- create_account("Alice", 1000)
+```
+#----------------------------------------------------------------------------------------
+## Function 2: `deposit()`
+
+### **Purpose**
+Adds a specified amount to the account balance.
+
+### **Inputs**
+- `account`: A `BankAccount` object.
+- `amount`: Numeric. The amount to deposit.
+
+### **Output**
+- Updated `BankAccount` object with a new balance.
+
+### **Code Example**
+```r
+deposit <- function(account, amount) {
+  account$balance <- account$balance + amount
+  return(account)
+}
+```
+
+### **Usage**
+```r
+my_account <- deposit(my_account, 200)
+```
+
+#---------------------------------------------------------------------------------------------
+## Function 3: `withdraw()`
+
+### **Purpose**
+Deducts a specified amount from the account balance if sufficient funds are available.
+
+### **Inputs**
+- `account`: A `BankAccount` object.
+- `amount`: Numeric. The amount to withdraw.
+
+### **Output**
+- Updated `BankAccount` object, or a message if funds are insufficient.
+
+### **Code Example**
+```r
+withdraw <- function(account, amount) {
+  if (amount > account$balance) {
+    message("Insufficient funds.")
+  } else {
+    account$balance <- account$balance - amount
+  }
+  return(account)
+}
+```
+
+### **Usage**
+```r
+my_account <- withdraw(my_account, 500)
+```
+
+#----------------------------------------------------------------------------------------------------
+## Function 4: `check_balance()`
+
+### **Purpose**
+Displays the current balance of the bank account.
+
+### **Inputs**
+- `account`: A `BankAccount` object.
+
+### **Output**
+- Numeric value showing the balance.
+
+### **Code Example**
+```r
+check_balance <- function(account) {
+  return(account$balance)
+}
+```
+
+### **Usage**
+```r
+balance <- check_balance(my_account)
+balance
+```
